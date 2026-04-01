@@ -1,0 +1,12 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+
+website:
+  title: "ESS_523c"
+
+author: 
+  name: Kyle Robinette
+  email: kyle.robnette@colostate.edu
