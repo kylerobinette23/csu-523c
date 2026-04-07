@@ -168,6 +168,9 @@ Hint: use `flextable()` with `set_header_labels()`, `set_caption()`, and `autofi
 :::
 
 ```{r}
+#| label: tbl-one
+#| tbl-cap: "Top 5 Colorado River Gauges by Volume of Flow: 9-30-2023"
+
 daily_delta <- daily_report %>%
   filter(Date == my.date) %>%
   mutate(across(c(Flow,flow_delta), round, 2))
@@ -187,6 +190,14 @@ high_flow_table <- daily_delta %>%
 
 high_flow_table
   
+
+
+```
+
+```{r}
+#| label: tbl-two
+#| tbl-cap: "Top 5 Colorado River Gauges by Change in Volume of Flow: 9-30-2023"
+
 #Table 2: 5 gauges with the greatest day-over-day increase
 changing_flow_table <- daily_delta %>%
   slice_max(order_by = flow_delta, n = 5) %>%
@@ -326,6 +337,9 @@ runoff_df <- joined_meta_data %>%
 **b.** On `my.date`, build a flextable showing **both raw and normalized rankings** side by side for all 7 gauges. Include columns for gauge name, raw discharge (cfs), drainage area (mi²), normalized flow (cfs/mi²), raw rank, and normalized rank. Sort by raw rank.
 
 ```{r}
+#| label: tbl-three
+#| tbl-cap: "Comparative Basin Rankings: Raw Discharge vs Normalized Area Discharge on 9-30-2023"
+
 ranking_data <- runoff_df %>%
   filter(Date == my.date) %>%
   select(name, Flow, drain_area_va, flow_per_sqmi) %>%
@@ -443,6 +457,9 @@ ggplot(lees_plot, aes(x = Date, y = q7_mean)) +
 :::
 
 ```{r}
+#| label: tbl-four
+#| tbl-cap: "Lees Ferry: Changes in Frequency of Low-Flow Threshold Breaches"
+
 #Calculate average days below threshold for two time periods
 period_comparison <- rolling_df %>%
   filter(site_no == "09380000") %>%

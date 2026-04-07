@@ -7,6 +7,8 @@ project:
 website:
   title: "ESS_523c"
 
+title: "Lab 2: Distances and Projections"
+subtitle: 'ESS 523c: Environmental Data Science Applications'
 author: 
   name: Kyle Robinette
   email: kyle.robnette@colostate.edu
